@@ -1,0 +1,17 @@
+<div>
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input id="username" name="username" type="text" [formControl]="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input id="password" name="password" type="password" [formControl]="password" required>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+  </form>
+  <div *ngIf="loginSuccess" class="alert alert-success" role="alert">ACCESS GRANTED</div>
+  <div *ngIf="loginFail" class="alert alert-danger" role="alert">ACCESS DENIED</div>
+  <div *ngIf="alertMessage" class="alert alert-danger" role="alert">{{ alertMessage }}</div>
+</div>
